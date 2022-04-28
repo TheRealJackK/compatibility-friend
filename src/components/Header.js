@@ -1,19 +1,20 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import Logo from "../images/compatibility-friend-logo.png";
 
 const Header = () => {
     return (
         <>
-        <nav className="navbar navbar-dark bg-dark d-flex justify-content-around shadow">
+        <nav className="navbar navbar-dark bg-light d-flex justify-content-around shadow-sm">
             <div className="container pb-4">
-                <h1 className="text-white">Compatibility Friend</h1>
+                <h1>Compatibility Friend</h1>
                 <img src={Logo} alt="Logo"></img>
             </div>
             <div className="container-fluid border-top m-5 mt-0 mb-0">
-                <p className="text-white">Link Placeholder</p>
-                <p className="text-white">Link Placeholder</p>
-                <p className="text-white">Link Placeholder</p>
-                <p className="text-white">Link Placeholder</p>
+                <Link to="/Choosepreference"><p>Choose Your Preference</p></Link>
+                <p>Link Placeholder</p>
+                <p>Link Placeholder</p>
+                <p>Link Placeholder</p>
             </div>
         </nav>
         </>

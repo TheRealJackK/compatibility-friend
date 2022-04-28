@@ -6,6 +6,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Home from "./Home";
 import Detailedview from "./Detailedview";
+import Choosepreference from "./Choosepreference";
 
 const App = () => {
   return (
@@ -18,6 +19,9 @@ const App = () => {
         </Route>
         <Route exact path="/Detailedview">
           <Detailedview />
+        </Route>
+        <Route exact path="/Choosepreference">
+          <Choosepreference />
         </Route>
       </Switch>
     </Router>
