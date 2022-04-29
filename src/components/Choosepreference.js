@@ -10,6 +10,7 @@ const Choosepreference = () => {
                 <div className="form-check"><input className="form-check-input" type="radio" /><label className="form-check-label">AMD</label></div>
                 <div className="form-check"><input className="form-check-input" type="radio" /><label className="form-check-label">INTEL</label></div>
             </div>
+            <div className="text-center" id="buttons"><p>This will decide what brand of CPU's and compatibile motherboards you will see.</p></div>
         </>
     )
 }

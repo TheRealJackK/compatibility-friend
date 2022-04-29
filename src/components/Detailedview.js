@@ -3,20 +3,20 @@ import React from "react";
 const Detailedview = () => {
     return (
         <>
-        <div className="container mb-5 pt-3">
-        <h1>Board Name</h1>
-        </div>
-        <div className="card shadow-sm rounded m-2"><img className="card-img-top w-100 d-block" src="https://picsum.photos/200/300" alt=""/>
-            <div className="card-body">
-                <h4 className="card-title">Product Name</h4>
-                <p className="card-text">Series</p>
-                <p className="card-text">Manufactorer</p>
-                <p className="card-text">Chipset</p>
-                <p className="card-text">Socket</p>
-                <p className="card-text">Compatibile Memory</p>
-                <p className="card-text">Product Description</p>
+        {/*Filter array map in here*/}
+        <div className="d-flex flex-column shadow-sm rounded m-5">
+            <img src="https://picsum.photos/200/300" alt=""/>
+            <div className="p-2">
+                <h4><strong>Product Name: </strong></h4>
+                <p><strong>Series: </strong></p>
+                <p><strong>Manufactorer: </strong></p>
+                <p><strong>Chipset: </strong></p>
+                <p><strong>Socket: </strong></p>
+                <p><strong>Compatibile Memory: </strong></p>
+                <p><strong>Product Description: </strong></p>
             </div>
         </div>
+        {/*Filter array map in here*/}
         </>
     )
 }

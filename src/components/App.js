@@ -7,6 +7,8 @@ import Footer from "./Footer";
 import Home from "./Home";
 import Detailedview from "./Detailedview";
 import Choosepreference from "./Choosepreference";
+import Signup from "./Signup";
+import Login from "./Login";
 
 const App = () => {
   return (
@@ -17,11 +19,17 @@ const App = () => {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/Detailedview">
+        <Route exact path="/Detailedview:id">
           <Detailedview />
         </Route>
         <Route exact path="/Choosepreference">
           <Choosepreference />
+        </Route>
+        <Route exact path="/Signup">
+          <Signup />
+        </Route>
+        <Route exact path="/Login">
+          <Login />
         </Route>
       </Switch>
     </Router>
