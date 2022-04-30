@@ -1,4 +1,5 @@
 import React from "react";
+import {Dummydata} from "../data/Placeholder";
 import {Link} from "react-router-dom"
 
 const Home = () => {
@@ -9,17 +10,18 @@ const Home = () => {
         </div>
         <h2 className="text-center">Popular Right Now</h2>
         <div className="card-group p-3">
-            {/*Map array in here*/}
-            <div className="card shadow-sm rounded m-2 bg-light border border-secondary"><img className="card-img-top w-100 d-block" src="https://picsum.photos/200/300" alt=""/>
-                <div className="card-body">
-                    <h4 className="card-title"><strong>Product Name: </strong></h4>
-                    <p className="card-text"><strong>Product Description: </strong></p>
-                    <Link to="/Detailedview">
-                        <p className="card-text">See More</p>
-                    </Link>
+            {Dummydata.map(motherboard => (
+                <div className="card shadow-sm rounded m-2 bg-light border border-secondary" key={motherboard.id}>
+                    <img className="card-img-top w-100 d-block" src={motherboard.image} alt={motherboard.productName}/>
+                    <div className="card-body">
+                        <h4 className="card-title"><strong>Product Name: </strong>{motherboard.productName}</h4>
+                        <p className="card-text"><strong>Product Description: </strong>{motherboard.productDescription}</p>
+                        <Link to={`Detailedview/${motherboard.id}`}>
+                            <p className="card-text">See More</p>
+                        </Link>
+                    </div>
                 </div>
-            </div>
-            {/*Map array in here*/}
+            ))}
         </div>
         </>
     )

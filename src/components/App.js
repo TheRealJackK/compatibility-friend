@@ -19,7 +19,7 @@ const App = () => {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/Detailedview:id">
+        <Route exact path="/Detailedview/:id">
           <Detailedview />
         </Route>
         <Route exact path="/Choosepreference">
