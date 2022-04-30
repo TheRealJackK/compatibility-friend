@@ -10,7 +10,7 @@ const Home = () => {
         <h2 className="text-center">Popular Right Now</h2>
         <div className="card-group p-3">
             {/*Map array in here*/}
-            <div className="card shadow-sm rounded m-2 bg-light"><img className="card-img-top w-100 d-block" src="https://picsum.photos/200/300" alt=""/>
+            <div className="card shadow-sm rounded m-2 bg-light border border-secondary"><img className="card-img-top w-100 d-block" src="https://picsum.photos/200/300" alt=""/>
                 <div className="card-body">
                     <h4 className="card-title"><strong>Product Name: </strong></h4>
                     <p className="card-text"><strong>Product Description: </strong></p>
