@@ -17,6 +17,7 @@ const Header = () => {
                 <Link to="/Choosepreference"><p>Choose Your Preference</p></Link>
                 <Link to="/Signup"><p>Sign Up</p></Link>
                 <Link to="/Login"><p>Login</p></Link>
+                <Link to="/Adminpanel"><p>Admin Panel</p></Link>
             </div>
         </nav>
         </>

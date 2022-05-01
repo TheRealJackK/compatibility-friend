@@ -9,6 +9,7 @@ import Detailedview from "./Detailedview";
 import Choosepreference from "./Choosepreference";
 import Signup from "./Signup";
 import Login from "./Login";
+import Adminpanel from "./Adminpanel";
 
 const App = () => {
   return (
@@ -30,6 +31,9 @@ const App = () => {
         </Route>
         <Route exact path="/Login">
           <Login />
+        </Route>
+        <Route exact path="/Adminpanel">
+          <Adminpanel />
         </Route>
       </Switch>
     </Router>

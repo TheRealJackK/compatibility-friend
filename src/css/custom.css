@@ -18,13 +18,13 @@
     padding: 1em;
 }
 
-.card {
+.card-body {
     transition: 500ms;
 }
 
-.card:hover {
+.card-body:hover {
     cursor: pointer;
-    transform: scale(1.0,1.0);
+    transform: scale(1.01,1.01);
 }
 
 .footer {

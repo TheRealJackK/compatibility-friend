@@ -1,13 +1,13 @@
 import React from "react";
-import {Dummydata} from "../data/Placeholder";
-import {useParams} from "react-router-dom";
+import {Motherboards} from "../data/motherboards";
+import {useParams, Link} from "react-router-dom";
 
 const Detailedview = () => {
     const {id} = useParams()
     return (
         <>
-        {Dummydata.filter(motherboard => Number(motherboard.id) === Number(id)).map(motherboard => (
-            <div className="d-flex flex-column shadow-sm rounded m-5">
+        {Motherboards.filter(motherboard => Number(motherboard.boardId) === Number(id)).map(motherboard => (
+            <div className="bg-light border border-secondary rounded d-flex flex-column align-items-center m-5">
                 <img src={motherboard.image} alt={motherboard.productName}/>
                 <div className="p-2">
                     <h4><strong>Product Name: </strong>{motherboard.productName}</h4>
@@ -18,6 +18,9 @@ const Detailedview = () => {
                     <p><strong>Compatibile Memory: </strong>{motherboard.compatibleMemory}</p>
                     <p><strong>Product Description: </strong>{motherboard.productDescription}</p>
                     <p><strong>Information Source: </strong>{motherboard.source}</p>
+                    <Link to="">
+                        <p><strong>See Compatibile CPUs</strong></p>
+                    </Link>
                 </div>
             </div>
         ))}
