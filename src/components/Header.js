@@ -14,6 +14,7 @@ const Header = () => {
             </div>
             <div className="container-fluid border-top border-secondary m-5 mt-0 mb-0 pt-2 justify-content-around">
                 <Link to="/"><p>Home</p></Link>
+                <Link to="/Searchboard"><p>Search A Board</p></Link>
                 <Link to="/Choosepreference"><p>Choose Your Preference</p></Link>
                 <Link to="/Signup"><p>Sign Up</p></Link>
                 <Link to="/Login"><p>Login</p></Link>

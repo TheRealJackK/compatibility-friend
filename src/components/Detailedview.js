@@ -1,9 +1,33 @@
 import React from "react";
-import {Motherboards} from "../data/motherboards";
+import {useState, useEffect} from "react"
 import {useParams, Link} from "react-router-dom";
+import {Motherboards} from "../data/motherboards";
 
 const Detailedview = () => {
     const {id} = useParams()
+    const [Like, setLike] = useState(0)
+    const [Dislike, setDislike] = useState(0)
+
+    // Saves Like Count
+    useEffect(() => {
+        const likes = localStorage.getItem('like-count')
+        Number(setLike(JSON.parse(likes)))
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem('like-count', JSON.stringify(Like))
+    })
+
+    // Saves Dislike Count
+    useEffect(() => {
+        const dislikes = localStorage.getItem('dislike-count')
+        Number(setDislike(JSON.parse(dislikes)))
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem('dislike-count', JSON.stringify(Dislike))
+    })
+
     return (
         <>
         {Motherboards.filter(motherboard => Number(motherboard.boardId) === Number(id)).map(motherboard => (
@@ -18,6 +42,12 @@ const Detailedview = () => {
                     <p><strong>Compatibile Memory: </strong>{motherboard.compatibleMemory}</p>
                     <p><strong>Product Description: </strong>{motherboard.productDescription}</p>
                     <p><strong>Information Source: </strong>{motherboard.source}</p>
+                    <div className="my-3">
+                        <button type="button" className="rounded" onClick={() => {setLike(Like + 1)}}>Like</button>
+                        <span id="upvoteBox" className="mx-2 text-success">{Like}</span>
+                        <button type="button" className="rounded" onClick={() => {setDislike(Dislike + 1)}}>Dislike</button>
+                        <span id="upvoteBox" className="mx-2 text-danger">{Dislike}</span>
+                    </div>
                     <Link to="">
                         <p><strong>See Compatibile CPUs</strong></p>
                     </Link>

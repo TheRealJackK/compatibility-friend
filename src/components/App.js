@@ -10,6 +10,7 @@ import Choosepreference from "./Choosepreference";
 import Signup from "./Signup";
 import Login from "./Login";
 import Adminpanel from "./Adminpanel";
+import Searchboard from "./Searchboard";
 
 const App = () => {
   return (
@@ -22,6 +23,9 @@ const App = () => {
         </Route>
         <Route exact path="/Detailedview/:id">
           <Detailedview />
+        </Route>
+        <Route exact path="/Searchboard">
+          <Searchboard />
         </Route>
         <Route exact path="/Choosepreference">
           <Choosepreference />
