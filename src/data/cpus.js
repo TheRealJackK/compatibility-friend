@@ -17,7 +17,8 @@ export const Cpus = [
     "processorTechnology": "TSMC 7nm FinFET",
     "maxOpTemp": "95 deg",
     "launchDate": "7/7/2019",
-    "unlocked": "Yes"
+    "unlocked": "Yes",
+    "tags": "popular"
     },
 
     {"cpuId": 2,
@@ -37,7 +38,8 @@ export const Cpus = [
     "processorTechnology": "TSMC 7nm FinFET",
     "maxOpTemp": "95 deg",
     "launchDate": "7/7/2019",
-    "unlocked": "Yes"
+    "unlocked": "Yes",
+    "tags": "popular"
     },
 
     {"cpuId": 3,
@@ -57,6 +59,7 @@ export const Cpus = [
     "processorTechnology": "TSMC 7nm FinFET",
     "maxOpTemp": "95 deg",
     "launchDate": "7/7/2019",
-    "unlocked": "Yes"
+    "unlocked": "Yes",
+    "tags": "popular"
     },
 ]

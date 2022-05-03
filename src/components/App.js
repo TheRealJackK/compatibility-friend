@@ -5,8 +5,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Header from "./Header";
 import Footer from "./Footer";
 import Home from "./Home";
-import Detailedview from "./Detailedview";
-import Choosepreference from "./Choosepreference";
+import Mobodetailedview from "./Mobodetailedview";
+import Cpudetailedview from "./Cpudetailedview";
 import Signup from "./Signup";
 import Login from "./Login";
 import Adminpanel from "./Adminpanel";
@@ -21,14 +21,14 @@ const App = () => {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/Detailedview/:id">
-          <Detailedview />
+        <Route exact path="/Mobodetailedview/:id">
+          <Mobodetailedview />
+        </Route>
+        <Route exact path="/Cpudetailedview/:id">
+          <Cpudetailedview />
         </Route>
         <Route exact path="/Searchboard">
           <Searchboard />
-        </Route>
-        <Route exact path="/Choosepreference">
-          <Choosepreference />
         </Route>
         <Route exact path="/Signup">
           <Signup />
@@ -40,8 +40,8 @@ const App = () => {
           <Adminpanel />
         </Route>
       </Switch>
+      <Footer />
     </Router>
-    <Footer />
     </>
   )
 }

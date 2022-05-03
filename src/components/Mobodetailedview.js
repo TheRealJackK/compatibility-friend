@@ -3,7 +3,7 @@ import {useState, useEffect} from "react"
 import {useParams, Link} from "react-router-dom";
 import {Motherboards} from "../data/motherboards";
 
-const Detailedview = () => {
+const Mobodetailedview = () => {
     const {id} = useParams()
     const [Like, setLike] = useState(0)
     const [Dislike, setDislike] = useState(0)
@@ -58,4 +58,4 @@ const Detailedview = () => {
     )
 }
 
-export default Detailedview;
+export default Mobodetailedview;
