@@ -16,7 +16,6 @@ import Createboard from "./Createboard";
 import Edituser from "./Edituser";
 
 const App = () => {
-  
   return (
     <>
     <Router>
