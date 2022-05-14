@@ -2,11 +2,34 @@
 
 #root {
     font-family: 'Oswald', sans-serif !important;
-    background: white;
+}
+
+h1 {
+    color: #6c757d !important; 
+}
+
+h2 {
+    color: #6c757d !important;
+}
+
+h3 {
+    color: #6c757d !important;
+}
+
+h4 {
+    color: #6c757d !important;
+}
+
+h5 {
+    color: #6c757d !important;
+}
+
+p {
+    color: #6c757d !important;
 }
 
 #buttons {
-    padding-bottom: 125px;
+    margin-bottom: 125px;
 }
 
 #company-logo {
@@ -18,8 +41,13 @@
     padding: 1em;
 }
 
+#search-array {
+    margin-bottom: 200px;
+}
+
 .card-body {
     transition: 500ms;
+    width: 25%;
 }
 
 .card-body:hover {
@@ -33,6 +61,6 @@
 
 @media screen and (max-width: 600px) {
     .card-body {
-        width:auto;
+        width:auto !important;
     }
 }

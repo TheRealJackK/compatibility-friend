@@ -1,82 +1,101 @@
 import React from "react";
 import {useState, useEffect} from "react";
-import {Motherboards} from "../data/motherboards";
-import {Cpus} from "../data/cpus";
+import Axios from "axios";
 import {Link} from "react-router-dom"
 
 const Home = () => {
-    const [Like, setLike] = useState(0)
-    const [Dislike, setDislike] = useState(0)
 
-    // Saves Like Count
+    // useState for motherboards
+    const [Motherboards, setMotherboards] = useState([])
+    // useState for cpus
+    const [Cpus, setCpus] = useState([])
+    // loadingBoards spinner
+    const [loadingBoards, setLoadingBoards] = useState(false)
+    // loadingCpus spinner
+    const [loadingCpus, setLoadingCpus] = useState(false)
+
+    // get request for motherboards
     useEffect(() => {
-        const likes = localStorage.getItem('like-count')
-        Number(setLike(JSON.parse(likes)))
+        setLoadingBoards(true)
+        Axios.get('http://localhost:3001/api/getmotherboard')
+        .then((response) => {
+            setMotherboards(response.data)
+            setLoadingBoards(false)
+        })
     }, [])
 
+    // get requests for cpus
     useEffect(() => {
-        localStorage.setItem('like-count', JSON.stringify(Like))
-    })
-
-    // Saves Dislike Count
-    useEffect(() => {
-        const dislikes = localStorage.getItem('dislike-count')
-        Number(setDislike(JSON.parse(dislikes)))
+        setLoadingCpus(true)
+        Axios.get('http://localhost:3001/api/getcpu')
+        .then((response) => {
+            setCpus(response.data)
+            setLoadingCpus(false)
+        })
     }, [])
 
-    useEffect(() => {
-        localStorage.setItem('dislike-count', JSON.stringify(Dislike))
-    })
-
-    return (
-        <>
-        <h2 className="text-center py-5">Popular Boards Right Now</h2>
-        <div className="card-group">
-            {Motherboards.filter(motherboard => motherboard.tag === "popular").map(motherboard => (
-                <div className="card-body bg-light m-3 shadow border border-secondary rounded w-25" key={motherboard.boardId}>
-                    <img className="card-img-top" src={motherboard.image} alt={motherboard.productName}/>
-                    <h4 className="card-title"><strong>Product Name: </strong>{motherboard.productName}</h4>
-                    <p className="card-text"><strong>Product Description: </strong>{motherboard.productDescription}</p>
-                    <Link to={`Mobodetailedview/${motherboard.boardId}`}>
-                        <p className="card-text">See More</p>
-                    </Link>
-                    <div className="my-3">
-                        <button type="button" className="rounded" onClick={() => {setLike(Like + 1)}}>Like</button>
-                        <span id="upvoteBox" className="mx-2 text-success">{Like}</span>
-                        <button type="button" className="rounded" onClick={() => {setDislike(Dislike + 1)}}>Dislike</button>
-                        <span id="upvoteBox" className="mx-2 text-danger">{Dislike}</span>
-                    </div>
+    if(loadingBoards && loadingCpus === true) {
+        return (
+            <>
+            <h2 className="text-center py-5">Popular Boards Right Now</h2>
+            <div className="d-flex justify-content-center">
+                <div className="spinner-border text-secondary" role="status">
+                <span className="visually-hidden">Loading...</span>
                 </div>
-            ))}
-        </div>
-        <h2 className="text-center py-5">Popular CPU's Right Now</h2>
-        <div className="card-group">
-            {Cpus.filter(cpu => cpu.tags === "popular").map(cpu => (
-                <div className="card-body bg-light m-3 shadow border border-secondary rounded w-25" key={cpu.cpuId}>
-                    <img className="card-img-top" src={cpu.cpuImage} alt={cpu.cpuName}/>
-                    <h4 className="card-title"><strong>CPU Name: </strong>{cpu.cpuName}</h4>
-                    <p className="card-text"><strong>CPU Socket: </strong>{cpu.cpuSocket}</p>
-                    <p className="card-text"><strong>Core Count: </strong>{cpu.numOfCores}</p>
-                    <p className="card-text"><strong>Thread Count: </strong>{cpu.numOfThreads}</p>
-                    <p className="card-text"><strong>Base Clock: </strong>{cpu.baseClock}</p>
-                    <p className="card-text"><strong>Max Boost Clock: </strong>{cpu.maxBoostClock}</p>
-                    <p className="card-text"><strong>Unlocked for overclocking: </strong>{cpu.unlocked}</p>
-                    <Link to={`Cpudetailedview/${cpu.cpuId}`}>
-                        <p className="card-text">See More</p>
-                    </Link>
-                    <div className="my-3">
-                        <button type="button" className="rounded" onClick={() => {setLike(Like + 1)}}>Like</button>
-                        <span id="upvoteBox" className="mx-2 text-success">{Like}</span>
-                        <button type="button" className="rounded" onClick={() => {setDislike(Dislike + 1)}}>Dislike</button>
-                        <span id="upvoteBox" className="mx-2 text-danger">{Dislike}</span>
+            </div>
+            </>
+        ) 
+    } else {
+        return (
+            <>
+            <h2 className="text-center py-5">Popular Boards Right Now</h2>
+            <div className="card-group flex-wrap">
+                {Motherboards.filter(motherboard => motherboard.tag === "popular").map(motherboard => (
+                    <div className="card-body bg-light m-3 shadow border border-secondary rounded" key={motherboard.boardId}>
+                        <img className="card-img-top" src={motherboard.boardImgPath} alt={motherboard.productName}/>
+                        <h4 className="card-title"><strong>Product Name: </strong>{motherboard.productName}</h4>
+                        <p className="card-text"><strong>Product Description: </strong>{motherboard.productDescription}</p>
+                        <Link to={`Mobodetailedview/${motherboard.boardId}`}>
+                            <p className="card-text">See More</p>
+                        </Link>
+                        <div className="my-3">
+                            <button type="button" className="rounded" >Like</button>
+                            <span id="upvoteBox" className="mx-2 text-success"></span>
+                            <button type="button" className="rounded" >Dislike</button>
+                            <span id="upvoteBox" className="mx-2 text-danger"></span>
+                        </div>
                     </div>
-                </div>
-            ))}
-        </div>
-        <h2 className="text-center py-5">Latest Tech News</h2>
-        <p className="text-center">News Articles Here</p>
-        </>
-    )
+                ))}
+            </div>
+            <h2 className="text-center py-5">Popular CPU's Right Now</h2>
+            <div className="card-group">
+                {Cpus.filter(cpu => cpu.tag === "popular").map(cpu => (
+                    <div className="card-body bg-light m-3 shadow border border-secondary rounded" key={cpu.cpuId}>
+                        <img className="card-img-top" src={cpu.cpuImage} alt={cpu.cpuName}/>
+                        <h4 className="card-title"><strong>CPU Name: </strong>{cpu.cpuName}</h4>
+                        <p className="card-text"><strong>CPU Socket: </strong>{cpu.cpuSocket}</p>
+                        <p className="card-text"><strong>Core Count: </strong>{cpu.numOfCores}</p>
+                        <p className="card-text"><strong>Thread Count: </strong>{cpu.numOfThreads}</p>
+                        <p className="card-text"><strong>Base Clock: </strong>{cpu.baseClock}</p>
+                        <p className="card-text"><strong>Max Boost Clock: </strong>{cpu.maxBoostClock}</p>
+                        <p className="card-text"><strong>Unlocked for overclocking: </strong>{cpu.unlocked}</p>
+                        <Link to={`Cpudetailedview/${cpu.cpuId}`}>
+                            <p className="card-text">See More</p>
+                        </Link>
+                        <div className="my-3">
+                            <button type="button" className="rounded">Like</button>
+                            <span id="upvoteBox" className="mx-2 text-success"></span>
+                            <button type="button" className="rounded">Dislike</button>
+                            <span id="upvoteBox" className="mx-2 text-danger"></span>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            <h2 className="text-center py-5">Latest Tech News</h2>
+            <p className="text-center">News Articles Here</p>
+            </>
+        )
+    }
 }
 
 export default Home;

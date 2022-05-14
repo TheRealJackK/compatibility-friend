@@ -1,7 +1,7 @@
 export const Motherboards = [
 
         {"boardId": 1,
-        "image": require("../images/mobo.png"),
+        "boardImgPath": require("../images/mobo.png"),
         "productName": "ROG Strix X570-E Gaming",
         "series": "ROG Strix",
         "manufactorer": "Asus",

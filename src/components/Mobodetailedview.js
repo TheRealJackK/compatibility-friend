@@ -1,61 +1,67 @@
 import React from "react";
 import {useState, useEffect} from "react"
+import Axios from "axios";
 import {useParams, Link} from "react-router-dom";
-import {Motherboards} from "../data/motherboards";
 
 const Mobodetailedview = () => {
+    // Gets motherboard ID
     const {id} = useParams()
-    const [Like, setLike] = useState(0)
-    const [Dislike, setDislike] = useState(0)
 
-    // Saves Like Count
+    // useState for Motherboard
+    const [Motherboards, setMotherboards] = useState([])
+    // loadingBoards spinner
+    const [loadingBoards, setLoadingBoards] = useState(false)
+    
+    // get request for motherboards
     useEffect(() => {
-        const likes = localStorage.getItem('like-count')
-        Number(setLike(JSON.parse(likes)))
+        setLoadingBoards(true)
+        Axios.get('http://localhost:3001/api/getmotherboard')
+        .then((response)=>{
+            setMotherboards(response.data)
+            setLoadingBoards(false)
+        })
     }, [])
 
-    useEffect(() => {
-        localStorage.setItem('like-count', JSON.stringify(Like))
-    })
-
-    // Saves Dislike Count
-    useEffect(() => {
-        const dislikes = localStorage.getItem('dislike-count')
-        Number(setDislike(JSON.parse(dislikes)))
-    }, [])
-
-    useEffect(() => {
-        localStorage.setItem('dislike-count', JSON.stringify(Dislike))
-    })
-
-    return (
-        <>
-        {Motherboards.filter(motherboard => Number(motherboard.boardId) === Number(id)).map(motherboard => (
-            <div className="bg-light border border-secondary rounded d-flex flex-column align-items-center m-5">
-                <img src={motherboard.image} alt={motherboard.productName}/>
-                <div className="p-2">
-                    <h4><strong>Product Name: </strong>{motherboard.productName}</h4>
-                    <p><strong>Series: </strong>{motherboard.series}</p>
-                    <p><strong>Manufactorer: </strong>{motherboard.manufactorer}</p>
-                    <p><strong>Chipset: </strong>{motherboard.chipset}</p>
-                    <p><strong>Socket: </strong>{motherboard.socket}</p>
-                    <p><strong>Compatibile Memory: </strong>{motherboard.compatibleMemory}</p>
-                    <p><strong>Product Description: </strong>{motherboard.productDescription}</p>
-                    <p><strong>Information Source: </strong>{motherboard.source}</p>
-                    <div className="my-3">
-                        <button type="button" className="rounded" onClick={() => {setLike(Like + 1)}}>Like</button>
-                        <span id="upvoteBox" className="mx-2 text-success">{Like}</span>
-                        <button type="button" className="rounded" onClick={() => {setDislike(Dislike + 1)}}>Dislike</button>
-                        <span id="upvoteBox" className="mx-2 text-danger">{Dislike}</span>
-                    </div>
-                    <Link to="">
-                        <p><strong>See Compatibile CPUs</strong></p>
-                    </Link>
+    if(loadingBoards === true) {
+        return (
+            <>
+            <h2 className="text-center py-5">Popular Boards Right Now</h2>
+            <div class="d-flex justify-content-center">
+                <div class="spinner-border text-secondary" role="status">
+                <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
-        ))}
-        </>
-    )
+            </>
+        ) 
+    } else {
+        return (
+            <>
+            {Motherboards.filter(motherboard => Number(motherboard.boardId) === Number(id)).map(motherboard => (
+                <div className="card-body bg-light border border-secondary rounded d-flex flex-column align-items-center m-5">
+                    <img src={motherboard.boardImgPath} alt={motherboard.productName}/>
+                    <div className="p-2">
+                        <h4><strong>Product Name: </strong>{motherboard.productName}</h4>
+                        <p><strong>Series: </strong>{motherboard.series}</p>
+                        <p><strong>Manufactorer: </strong>{motherboard.manufactorer}</p>
+                        <p><strong>Chipset: </strong>{motherboard.chipset}</p>
+                        <p><strong>Socket: </strong>{motherboard.cpuSocket}</p>
+                        <p><strong>Compatibile Memory: </strong>{motherboard.compatibleMemory}</p>
+                        <p><strong>Product Description: </strong>{motherboard.productDescription}</p>
+                        <div className="my-3">
+                            <button type="button" className="rounded" >Like</button>
+                            <span id="upvoteBox" className="mx-2 text-success"></span>
+                            <button type="button" className="rounded" >Dislike</button>
+                            <span id="upvoteBox" className="mx-2 text-danger"></span>
+                        </div>
+                        <Link to="">
+                            <p><strong>See Compatibile CPUs</strong></p>
+                        </Link>
+                    </div>
+                </div>
+            ))}
+            </>
+        )
+    }
 }
 
 export default Mobodetailedview;

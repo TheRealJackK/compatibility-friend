@@ -8,6 +8,7 @@ export const Users = [
     "email": "user@domain.com",
     "password": "abc123",
     "privelages": "User",
+    "ipAddress": "",
     "preference": "AMD"
     },
 
@@ -19,6 +20,7 @@ export const Users = [
     "email": "user@domain.com",
     "password": "abc123",
     "privelages": "User",
+    "ipAddress": "",
     "preference": "AMD"
     },
 
@@ -30,6 +32,7 @@ export const Users = [
     "email": "user@domain.com",
     "password": "abc123",
     "privelages": "User",
+    "ipAddress": "",
     "preference": "AMD"
     }
 ]

@@ -11,14 +11,18 @@ import Signup from "./Signup";
 import Login from "./Login";
 import Adminpanel from "./Adminpanel";
 import Searchboard from "./Searchboard";
+import Createcpu from "./Createcpu";
+import Createboard from "./Createboard";
+import Edituser from "./Edituser";
 
 const App = () => {
+  
   return (
     <>
     <Router>
       <Header />
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/compatibility-friend">
           <Home />
         </Route>
         <Route exact path="/Mobodetailedview/:id">
@@ -38,6 +42,15 @@ const App = () => {
         </Route>
         <Route exact path="/Adminpanel">
           <Adminpanel />
+        </Route>
+        <Route exact path="/Createcpu">
+          <Createcpu />
+        </Route>
+        <Route exact path="/Createboard">
+          <Createboard />
+        </Route>
+        <Route exact path="/Edituser/:id">
+          <Edituser />
         </Route>
       </Switch>
       <Footer />

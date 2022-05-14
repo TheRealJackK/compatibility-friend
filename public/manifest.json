@@ -3,17 +3,12 @@
   "name": "Compatibility Friend React App",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "compatibility-friend-logo.svg",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "type": "image/svg"
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
+      "src": "compatibility-friend-logo.png",
       "type": "image/png",
       "sizes": "512x512"
     }
