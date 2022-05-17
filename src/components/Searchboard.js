@@ -27,7 +27,7 @@ const Searchboard = () => {
         </div>
         <div id="search-array" className="card-group">
             {Motherboards.filter(motherboard => motherboard.productName.toLowerCase() === searchVal.toLowerCase()).map(motherboard => (
-                <div className="card-body bg-light m-3 shadow border border-secondary rounded w-25" key={motherboard.boardId}>
+                <div className="card-body bg-light m-3 shadow border border-secondary rounded" key={motherboard.boardId}>
                     <img className="card-img-top" src={motherboard.boardImgPath} alt={motherboard.productName}/>
                     <h4 className="card-title"><strong>Product Name: </strong>{motherboard.productName}</h4>
                     <p className="card-text"><strong>Series: </strong>{motherboard.series}</p>

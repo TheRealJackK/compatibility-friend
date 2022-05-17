@@ -63,4 +63,8 @@ p {
     .card-body {
         width:auto !important;
     }
+
+    .card-body:hover {
+        transform: none;
+    }
 }
