@@ -1,5 +1,4 @@
 import React from "react";
-// import {useState, useEffect} from "react"
 import {Link} from "react-router-dom";
 import HomeIcon from "../icons/home.svg";
 import SearchIcon from "../icons/search.svg";
@@ -19,7 +18,7 @@ const Header = () => {
     //     }
     // }, [DarkMode])
 
-    return (
+    return(
         <>
         <nav className="navbar sticky-top navbar-dark bg-light d-flex shadow">
             <div className="flex-column m-auto">

@@ -38,7 +38,7 @@ const Mobodetailedview = () => {
             <>
             {Motherboards.filter(motherboard => Number(motherboard.boardId) === Number(id)).map(motherboard => (
                 <div className="card-body bg-light border border-secondary rounded d-flex flex-column align-items-center m-5">
-                    <img src={motherboard.boardImgPath} alt={motherboard.productName}/>
+                    <img className="card-img-top" src={motherboard.boardImgPath} alt={motherboard.productName}/>
                     <div className="p-2">
                         <h4><strong>Product Name: </strong>{motherboard.productName}</h4>
                         <p><strong>Series: </strong>{motherboard.series}</p>
