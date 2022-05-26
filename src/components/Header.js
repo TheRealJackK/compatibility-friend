@@ -1,4 +1,5 @@
 import React from "react";
+// import { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 import HomeIcon from "../icons/home.svg";
 import SearchIcon from "../icons/search.svg";
@@ -11,7 +12,7 @@ const Header = () => {
     // const [DarkMode, setDarkMode] = useState(false)
 
     // useEffect(() => {
-    //     if(DarkMode === 'false') {
+    //     if(DarkMode === false) {
     //     document.body.classList.add("bg-light")
     //     } else {
     //     document.body.classList.add("bg-dark")

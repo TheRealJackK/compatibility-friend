@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import Home from "./Home";
 import Mobodetailedview from "./Mobodetailedview";
 import Cpudetailedview from "./Cpudetailedview";
+import Userdetailedview from "./Userdetailedview";
 import Signup from "./Signup";
 import Login from "./Login";
 import Adminpanel from "./Adminpanel";
@@ -21,7 +22,7 @@ const App = () => {
     <Router>
       <Header />
       <Switch>
-        <Route exact path="/compatibility-friend">
+        <Route exact path="/">
           <Home />
         </Route>
         <Route exact path="/Mobodetailedview/:id">
@@ -29,6 +30,9 @@ const App = () => {
         </Route>
         <Route exact path="/Cpudetailedview/:id">
           <Cpudetailedview />
+        </Route>
+        <Route exact path="/Userdetailedview/:id">
+          <Userdetailedview />
         </Route>
         <Route exact path="/Searchboard">
           <Searchboard />

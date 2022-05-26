@@ -24,7 +24,6 @@ const Cpudetailedview = () => {
     if(loadingCpus === true) {
         return(
             <>
-            <h2 className="text-center py-5">Popular Boards Right Now</h2>
             <div class="d-flex justify-content-center">
                 <div class="spinner-border text-secondary" role="status">
                 <span class="visually-hidden">Loading...</span>

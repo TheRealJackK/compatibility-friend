@@ -60,18 +60,18 @@ const Adminpanel = () => {
         return (
             <>
             <div className="d-flex justify-content-center">
-                <div className="m-5">
+                <div className="bg-light my-5 mx-1 p-1 border border-dark rounded">
                     <Link className="text-decoration-none" to="/Createcpu">
                         Add a new CPU
                     </Link>
                 </div>
-                <div className="m-5">
+                <div className="bg-light my-5 mx-1 p-1 border border-dark rounded">
                     <Link className="text-decoration-none" to="/Createboard">
                         Add a new Motherboard
                     </Link>
                 </div>
             </div>
-            <h1 className="text-center py-5">List of Users</h1>
+            <h1 className="text-center">List of Users</h1>
             <div className="card-group">
                 {Users.map(user => (
                     <div className="card-body bg-light m-3 shadow border border-secondary rounded" key={user.userId}>
@@ -83,35 +83,28 @@ const Adminpanel = () => {
                         <p className="card-text"><strong>Privelages: </strong>{user.privelages}</p>
                         <p className="card-text"><strong>Preference: </strong>{user.preference}</p>
                         <div className="d-flex flex-row">
-                            <button type="button">
-                                <p className="card-text p-1">Edit</p>
-                            </button>
-                            <button type="button">
-                                <p className="card-text p-1">Delete</p>
-                            </button> 
+                            <Link className="text-danger" to={`Userdetailedview/${user.userId}`}>
+                                <p className="card-text p-1">Manage User</p>
+                            </Link>
                         </div>
                     </div>
                 ))}
             </div>
             <h1 className="text-center">List of Boards</h1>
             <div className="card-group">
-                {Motherboards.map(cpu => (
-                    <div className="card-body bg-light m-3 shadow border border-secondary rounded" key={cpu.boardId}>
-                        <img className="card-img-top" src={cpu.boardImgPath} alt={cpu.productName}/>
-                        <h4 className="card-title"><strong>Product Name: </strong>{cpu.productName}</h4>
-                        <p className="card-text"><strong>Series: </strong>{cpu.series}</p>
-                        <p className="card-text"><strong>Manufactorer: </strong>{cpu.manufactorer}</p>
-                        <p className="card-text"><strong>Chipset: </strong>{cpu.chipset}</p>
-                        <p className="card-text"><strong>Socket: </strong>{cpu.socket}</p>
-                        <p className="card-text"><strong>Compatibile Memory: </strong>{cpu.compatibleMemory}</p>
-                        <p className="card-text"><strong>Product Description: </strong>{cpu.productDescription}</p>
-                        <p className="card-text"><strong>Information Source: </strong>{cpu.source}</p>
+                {Motherboards.map(motherboard => (
+                    <div className="card-body bg-light m-3 shadow border border-secondary rounded" key={motherboard.boardId}>
+                        <img className="card-img-top" src={motherboard.boardImgPath} alt={motherboard.productName}/>
+                        <h4 className="card-title"><strong>Product Name: </strong>{motherboard.productName}</h4>
+                        <p className="card-text"><strong>Series: </strong>{motherboard.series}</p>
+                        <p className="card-text"><strong>Manufactorer: </strong>{motherboard.manufactorer}</p>
+                        <p className="card-text"><strong>Chipset: </strong>{motherboard.chipset}</p>
+                        <p className="card-text"><strong>Socket: </strong>{motherboard.socket}</p>
+                        <p className="card-text"><strong>Compatibile Memory: </strong>{motherboard.compatibleMemory}</p>
+                        <p className="card-text"><strong>Product Description: </strong>{motherboard.productDescription}</p>
                         <div className="d-flex flex-row">
-                            <Link to="">
-                                <p className="card-text p-1">Edit</p>
-                            </Link>
-                            <Link to="">
-                                <p className="card-text p-1">Delete</p>
+                            <Link className="text-danger" to="">
+                                <p className="card-text p-1">Manage Board</p>
                             </Link>
                         </div>
                     </div>
@@ -139,11 +132,8 @@ const Adminpanel = () => {
                         <p className="card-text"><strong>Launch Date: </strong>{cpu.launchDate}</p>
                         <p className="card-text"><strong>Unlocked for overclocking: </strong>{cpu.unlocked}</p>
                         <div className="d-flex flex-row">
-                            <Link to="">
-                                <p className="card-text p-1">Edit</p>
-                            </Link>
-                            <Link to="">
-                                <p className="card-text p-1">Delete</p>
+                            <Link className="text-danger" to="">
+                                <p className="card-text p-1">Manage Cpu</p>
                             </Link>
                         </div>
                     </div>

@@ -4,7 +4,6 @@ import Axios from "axios";
 import {Link} from "react-router-dom"
 
 const Home = () => {
-
     // useState for motherboards
     const [Motherboards, setMotherboards] = useState([])
     // useState for cpus
@@ -52,18 +51,11 @@ const Home = () => {
             <div className="card-group flex-wrap">
                 {Motherboards.filter(motherboard => motherboard.tag === "popular").map(motherboard => (
                     <div className="card-body bg-light m-3 shadow border border-secondary rounded" key={motherboard.boardId}>
+                        <Link className="text-decoration-none" to={`Mobodetailedview/${motherboard.boardId}`}>
                         <img className="card-img-top" src={motherboard.boardImgPath} alt={motherboard.productName}/>
                         <h4 className="card-title"><strong>Product Name: </strong>{motherboard.productName}</h4>
                         <p className="card-text"><strong>Product Description: </strong>{motherboard.productDescription}</p>
-                        <Link to={`Mobodetailedview/${motherboard.boardId}`}>
-                            <p className="card-text">See More</p>
                         </Link>
-                        <div className="my-3">
-                            <button type="button" className="rounded" >Like</button>
-                            <span id="upvoteBox" className="mx-2 text-success"></span>
-                            <button type="button" className="rounded" >Dislike</button>
-                            <span id="upvoteBox" className="mx-2 text-danger"></span>
-                        </div>
                     </div>
                 ))}
             </div>
@@ -71,6 +63,7 @@ const Home = () => {
             <div className="card-group">
                 {Cpus.filter(cpu => cpu.tag === "popular").map(cpu => (
                     <div className="card-body bg-light m-3 shadow border border-secondary rounded" key={cpu.cpuId}>
+                        <Link className="text-decoration-none" to={`Cpudetailedview/${cpu.cpuId}`}>
                         <img className="card-img-top" src={cpu.cpuImage} alt={cpu.cpuName}/>
                         <h4 className="card-title"><strong>CPU Name: </strong>{cpu.cpuName}</h4>
                         <p className="card-text"><strong>CPU Socket: </strong>{cpu.cpuSocket}</p>
@@ -79,15 +72,7 @@ const Home = () => {
                         <p className="card-text"><strong>Base Clock: </strong>{cpu.baseClock}</p>
                         <p className="card-text"><strong>Max Boost Clock: </strong>{cpu.maxBoostClock}</p>
                         <p className="card-text"><strong>Unlocked for overclocking: </strong>{cpu.unlocked}</p>
-                        <Link to={`Cpudetailedview/${cpu.cpuId}`}>
-                            <p className="card-text">See More</p>
                         </Link>
-                        <div className="my-3">
-                            <button type="button" className="rounded">Like</button>
-                            <span id="upvoteBox" className="mx-2 text-success"></span>
-                            <button type="button" className="rounded">Dislike</button>
-                            <span id="upvoteBox" className="mx-2 text-danger"></span>
-                        </div>
                     </div>
                 ))}
             </div>
