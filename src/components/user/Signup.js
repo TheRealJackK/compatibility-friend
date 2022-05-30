@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import Axios from "axios";
 
 const Signup = () => {
@@ -23,7 +22,7 @@ const Signup = () => {
             password: password,
         })
         .then((response) => {
-            console.log(response)
+            console.log(response.data)
         })
         .catch((error) => {
             console.log(error)
@@ -54,9 +53,7 @@ const Signup = () => {
                     </div>
                     <div className="mb-3 my-3"><input onChange={(e) => {setPassword(e.target.value)}} className="form-control" type="password" name="password" placeholder="Password" /></div>
                     <div className="mb-3"><input className="form-control" type="password" name="password" placeholder="Confirm Password" /></div>
-                    <Link to="/Login">
-                        <div className="mb-3"><button onClick={submitUser} className="btn btn-primary d-block w-100" type="button">Register</button></div>
-                    </Link>
+                    <div className="mb-3"><button onClick={submitUser} className="btn btn-primary d-block w-100" type="button">Register</button></div>
                 </form>
             </section>
         </div>

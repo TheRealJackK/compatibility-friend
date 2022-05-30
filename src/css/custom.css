@@ -61,7 +61,7 @@ p {
 
 @media screen and (max-width: 600px) {
     .card-body {
-        width:auto !important;
+        width: auto !important;
     }
 
     .card-body:hover {

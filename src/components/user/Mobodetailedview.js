@@ -25,9 +25,9 @@ const Mobodetailedview = () => {
     if(loadingBoards === true) {
         return (
             <>
-            <div class="d-flex justify-content-center">
-                <div class="spinner-border text-secondary" role="status">
-                <span class="visually-hidden">Loading...</span>
+            <div className="d-flex justify-content-center py-5">
+                <div className="spinner-border text-secondary" role="status">
+                <span className="visually-hidden">Loading...</span>
                 </div>
             </div>
             </>
@@ -36,7 +36,7 @@ const Mobodetailedview = () => {
         return (
             <>
             {Motherboards.filter(motherboard => Number(motherboard.boardId) === Number(id)).map(motherboard => (
-                <div className="card-body bg-light border border-secondary rounded d-flex flex-column align-items-center m-5">
+                <div className="card-body bg-light border border-secondary rounded d-flex flex-column align-items-center m-5" key={motherboard.id}>
                     <img className="card-img-top" src={motherboard.boardImgPath} alt={motherboard.productName}/>
                     <div className="p-2">
                         <h4><strong>Product Name: </strong>{motherboard.productName}</h4>
@@ -46,14 +46,8 @@ const Mobodetailedview = () => {
                         <p><strong>Socket: </strong>{motherboard.cpuSocket}</p>
                         <p><strong>Compatibile Memory: </strong>{motherboard.compatibleMemory}</p>
                         <p><strong>Product Description: </strong>{motherboard.productDescription}</p>
-                        <div className="my-3">
-                            <button type="button" className="rounded" >Like</button>
-                            <span id="upvoteBox" className="mx-2 text-success"></span>
-                            <button type="button" className="rounded" >Dislike</button>
-                            <span id="upvoteBox" className="mx-2 text-danger"></span>
-                        </div>
-                        <Link to="">
-                            <p><strong>See Compatibile CPUs</strong></p>
+                        <Link className="text-danger" to="">
+                            <p className="text-danger"><strong>See Compatibile CPUs</strong></p>
                         </Link>
                     </div>
                 </div>

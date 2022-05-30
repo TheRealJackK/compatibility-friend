@@ -33,6 +33,10 @@ const Createboard = () => {
         .catch((error) => {
             console.log(error)
         })
+        .then(() => {
+            alert("Success! Redirecting you now")
+            window.location.href = "/Adminpanel"
+        })
     }
 
     return(

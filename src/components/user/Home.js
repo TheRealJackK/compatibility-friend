@@ -36,8 +36,7 @@ const Home = () => {
     if(loadingBoards && loadingCpus === true) {
         return (
             <>
-            <h2 className="text-center py-5">Popular Boards Right Now</h2>
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-center py-5">
                 <div className="spinner-border text-secondary" role="status">
                 <span className="visually-hidden">Loading...</span>
                 </div>

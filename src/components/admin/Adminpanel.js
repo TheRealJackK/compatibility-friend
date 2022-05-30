@@ -49,7 +49,7 @@ const Adminpanel = () => {
     if(loadingBoards && loadingCpus && loadingUsers === true) {
         return (
             <>
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center py-5">
                 <div class="spinner-border text-secondary" role="status">
                 <span class="visually-hidden">Loading...</span>
                 </div>
@@ -84,7 +84,7 @@ const Adminpanel = () => {
                         <p className="card-text"><strong>Preference: </strong>{user.preference}</p>
                         <div className="d-flex flex-row">
                             <Link className="text-danger" to={`Userdetailedview/${user.userId}`}>
-                                <p className="card-text p-1">Manage User</p>
+                                <p className="card-text text-danger p-1">Manage User</p>
                             </Link>
                         </div>
                     </div>
@@ -104,7 +104,7 @@ const Adminpanel = () => {
                         <p className="card-text"><strong>Product Description: </strong>{motherboard.productDescription}</p>
                         <div className="d-flex flex-row">
                             <Link className="text-danger" to="">
-                                <p className="card-text p-1">Manage Board</p>
+                                <p className="card-text text-danger p-1">Manage Board</p>
                             </Link>
                         </div>
                     </div>
@@ -133,7 +133,7 @@ const Adminpanel = () => {
                         <p className="card-text"><strong>Unlocked for overclocking: </strong>{cpu.unlocked}</p>
                         <div className="d-flex flex-row">
                             <Link className="text-danger" to="">
-                                <p className="card-text p-1">Manage Cpu</p>
+                                <p className="card-text text-danger p-1">Manage Cpu</p>
                             </Link>
                         </div>
                     </div>

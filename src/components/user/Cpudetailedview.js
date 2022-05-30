@@ -24,9 +24,9 @@ const Cpudetailedview = () => {
     if(loadingCpus === true) {
         return(
             <>
-            <div class="d-flex justify-content-center">
-                <div class="spinner-border text-secondary" role="status">
-                <span class="visually-hidden">Loading...</span>
+            <div className="d-flex justify-content-center py-5">
+                <div className="spinner-border text-secondary" role="status">
+                <span className="visually-hidden">Loading...</span>
                 </div>
             </div>
             </>
@@ -35,7 +35,7 @@ const Cpudetailedview = () => {
         return(
             <>
             {Cpus.filter(cpu => Number(cpu.cpuId) === Number(id)).map(cpu => (
-                <div className="card-body bg-light border border-secondary rounded d-flex flex-column align-items-center m-5">
+                <div className="card-body bg-light border border-secondary rounded d-flex flex-column align-items-center m-5" key={cpu.cpuId}>
                     <div className="p-2">
                     <img className="card-img-top" src={cpu.cpuImage} alt={cpu.cpuName}/>
                         <h4><strong>CPU Name: </strong>{cpu.cpuName}</h4>
@@ -54,14 +54,8 @@ const Cpudetailedview = () => {
                         <p><strong>Maximum Operating Temperature: </strong>{cpu.maxOpTemp}</p>
                         <p><strong>Launch Date: </strong>{cpu.launchDate}</p>
                         <p><strong>Unlocked for overclocking: </strong>{cpu.unlocked}</p>
-                        <div className="my-3">
-                            <button type="button" className="rounded">Like</button>
-                            <span id="upvoteBox" className="mx-2 text-success"></span>
-                            <button type="button" className="rounded">Dislike</button>
-                            <span id="upvoteBox" className="mx-2 text-danger"></span>
-                        </div>
-                        <Link to="">
-                            <p><strong>See Compatibile Motherboards</strong></p>
+                        <Link className="text-danger" to="">
+                            <p className="text-danger"><strong>See Compatibile Motherboards</strong></p>
                         </Link>
                     </div>
                 </div>
