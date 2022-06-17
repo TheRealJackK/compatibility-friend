@@ -54,6 +54,7 @@ const Home = () => {
                         <img className="card-img-top" src={motherboard.boardImgPath} alt={motherboard.productName}/>
                         <h4 className="card-title"><strong>Product Name: </strong>{motherboard.productName}</h4>
                         <p className="card-text"><strong>Product Description: </strong>{motherboard.productDescription}</p>
+                        <p className="card-text text-primary">Click To See More!</p>
                         </Link>
                     </div>
                 ))}
@@ -71,6 +72,7 @@ const Home = () => {
                         <p className="card-text"><strong>Base Clock: </strong>{cpu.baseClock}</p>
                         <p className="card-text"><strong>Max Boost Clock: </strong>{cpu.maxBoostClock}</p>
                         <p className="card-text"><strong>Unlocked for overclocking: </strong>{cpu.unlocked}</p>
+                        <p className="card-text text-primary">Click To See More!</p>
                         </Link>
                     </div>
                 ))}

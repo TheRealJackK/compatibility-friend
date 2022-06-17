@@ -54,8 +54,8 @@ const Cpudetailedview = () => {
                         <p><strong>Maximum Operating Temperature: </strong>{cpu.maxOpTemp}</p>
                         <p><strong>Launch Date: </strong>{cpu.launchDate}</p>
                         <p><strong>Unlocked for overclocking: </strong>{cpu.unlocked}</p>
-                        <Link className="text-danger" to="">
-                            <p className="text-danger"><strong>See Compatibile Motherboards</strong></p>
+                        <Link className="text-decoration-none" to="">
+                            <p className="card-text text-primary">See Compatibile Motherboards</p>
                         </Link>
                     </div>
                 </div>
