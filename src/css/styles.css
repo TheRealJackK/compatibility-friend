@@ -1,0 +1,502 @@
+/* Heading Font */
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+/* Paragraph Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/*
+
+Colours
+
+Highlights - #262626
+Background - #d9d9d9
+Header/Footer/Cards - #e6e6e6;
+
+*/
+
+body {
+    margin: 0;
+    background: #d9d9d9;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Oswald', sans-serif;
+    color: #262626;
+    text-align: center;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    color: #262626;
+    text-align: center;
+}
+
+#CDElogo {
+    width: 30%;
+}
+
+/* Header & Footer Styling */
+
+.header {
+    width: 100%;
+    z-index: 99;
+    text-align: center;
+    background: #e6e6e6;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.header p {
+    font-size: 1.1em;
+}
+
+.header > span {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: auto;
+    border-top: 2px solid #262626;
+    max-width: 80%;
+}
+
+.header > div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: auto;
+    max-width: 80%;
+}
+
+.header > span > a {
+    text-decoration: none;
+    transition: 500ms;
+}
+
+.header > span > a:hover {
+    transform: scale(1.05, 1.05);
+    text-decoration: underline 1.5px #262626;
+}
+
+.header > span > div > img {
+    cursor: pointer;
+}
+
+#email::before {
+    content: "jack";
+}
+
+#email::after {
+    content: "casa-de-ezz.com";
+}
+
+#hamburger-container > #hamburger-icon {
+    display: none;
+    margin: 0.5em;
+    width: 2em;
+    height: 2em;
+}
+
+#hamburger-container > #hamburger-links {
+    margin-right: 2.5em;
+    margin-top: -1em;
+    margin-bottom: -0.5em;
+    display: none;
+    text-decoration: none;
+    list-style: none;
+    transition: 500ms;
+}
+
+#hamburger-container:hover > #hamburger-links {
+    display: block;
+    text-decoration: underline #262626 1.5px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: 1em;
+    background: #e6e6e6;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 18px, rgba(0, 0, 0, 0.23) 0px 3px 18px;
+}
+
+.footer > h1 {
+    padding-top: 1em;
+}
+
+.footer > div {
+    width: 0px;
+    height: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border: 1px solid #262626;
+}
+
+.footer > span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    padding-top: 0.5em;
+    max-width: 80%;
+}
+
+.footer > span > a {
+    text-decoration: none;
+    transition: 500ms;
+}
+
+.footer > span > a:hover {
+    transform: scale(1.15, 1.15);
+    text-decoration: underline 1.5px #262626;
+}
+
+.footer > span > img {
+    width: 5em;
+}
+
+/* Page Styling */
+
+.page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.page > span {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 80%;
+    text-align: center;
+    border-bottom: solid 2px #262626;
+    padding-bottom: 1em;
+}
+
+.page h2 {
+    font-size: 2.5rem;
+    width: fit-content;
+}
+
+.page a {
+  color: #262626;  
+}
+
+.page > input {
+    width: 75%;
+    margin-bottom: 1em;
+}
+
+/* Card Styling */
+
+.card-group {
+    max-width: 100%;
+    display: flex;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-group > a {
+    text-decoration: none;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 22em;
+    height: 45em;
+    margin: 1em;
+    padding: 0.5em;
+    background: #e6e6e6;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    transition: 500ms;
+}
+
+.card:hover {
+    transform: scale(1.02, 1.02);
+    cursor: pointer;
+}
+
+.card > img {
+    justify-content: center;
+    align-items: center;
+    display: block;
+    width: 15em;
+    padding: 0.5em;
+}
+
+.card > h3 {
+    max-width: 20em;
+    font-size: 1.5rem;
+}
+
+.card > p {
+    max-width: 20em;
+    text-align: left;
+}
+
+.card-detailed {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 22em;
+    height: 65em;
+    margin: 1em;
+    padding: 0.5em;
+    background: #e6e6e6;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    transition: 500ms;
+}
+
+.card-detailed:hover {
+    transform: scale(1.02, 1.02);
+    cursor: pointer;
+}
+
+.card-detailed > img {
+    justify-content: center;
+    align-items: center;
+    display: block;
+    width: 15em;
+    padding: 0.5em;
+}
+
+.card-detailed > h3 {
+    max-width: 20em;
+    font-size: 1.5rem;
+}
+
+.card-detailed > p {
+    max-width: 20em;
+    text-align: left;
+}
+
+.card-xl {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 22em;
+    height: 75em;
+    margin: 1em;
+    padding: 0.5em;
+    background: #e6e6e6;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    transition: 500ms;
+}
+
+.card-xl:hover {
+    transform: scale(1.02, 1.02);
+    cursor: pointer;
+}
+
+.card-xl > img {
+    justify-content: center;
+    align-items: center;
+    display: block;
+    width: 15em;
+    padding: 0.5em;
+}
+
+.card-xl > h3 {
+    max-width: 20em;
+    font-size: 1.5rem;
+}
+
+.card-xl > p {
+    max-width: 20em;
+    text-align: left;
+}
+
+form {
+    width: 50%;
+    margin: 1em;
+    padding: 1em;
+    background: #262626;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 5px 15px;
+    border: 2px solid #262626;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+}
+
+form h3 {
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    font-size: 1.5em;
+    color: #ffffff;
+    text-align: left;
+}
+
+form label {
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    color: #ffffff;
+    font-size: 1em;
+    text-align: left;
+}
+
+form input {
+    border: 2px solid #262626;
+    border-radius: 4px;
+    color: #ffffff;
+    background: #333333;
+    font-family: 'Kanit', sans-serif;
+}
+
+form select {
+    border: 2px solid #262626;
+    border-radius: 4px;
+    color: #ffffff;
+    background: #333333;
+    font-family: 'Kanit', sans-serif;
+}
+
+form textarea {
+    border: 2px solid #262626;
+    border-radius: 4px;
+    color: #ffffff;
+    background: #333333;
+    font-family: 'Kanit', sans-serif;
+}
+
+#submit {
+    width: 100%;
+    margin: auto;
+    margin-top: 1em;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: 'Kanit', sans-serif;
+    transition: 500ms;
+}
+
+#submit:hover {
+    transform: scale(1.01, 1.01);
+    color: #262626;
+}
+
+#honeypot {
+    display: none;
+}
+
+/* Loading Spinner */
+
+.lds-facebook {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-facebook div {
+    display: inline-block;
+    position: absolute;
+    left: 8px;
+    width: 16px;
+    background: #262626;
+    animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  }
+  .lds-facebook div:nth-child(1) {
+    left: 8px;
+    animation-delay: -0.24s;
+  }
+  .lds-facebook div:nth-child(2) {
+    left: 32px;
+    animation-delay: -0.12s;
+  }
+  .lds-facebook div:nth-child(3) {
+    left: 56px;
+    animation-delay: 0;
+  }
+  @keyframes lds-facebook {
+    0% {
+      top: 8px;
+      height: 64px;
+    }
+    50%, 100% {
+      top: 24px;
+      height: 32px;
+    }
+  }  
+
+@media screen and (max-width: 600px) {
+
+    .header h1 {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    .header h2 {
+        font-size: 1rem;
+    }
+
+    .map-box {
+        display: none;
+    }
+
+    .card-group {
+        max-width: 100%;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .footer {
+        display: none;
+    }
+
+    .page span {
+        padding-bottom: 1em;
+    }
+
+    .page form {
+        width: 90%;
+    }
+
+    .page div > img {
+        width: 80%;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    #hamburger-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #hamburger-container > #hamburger-icon {
+        display: block;
+    }
+
+    #CDElogo {
+        width: 70%;
+    }
+    
+    #map-spinner {
+        display: none;
+    }
+
+    #submit {
+        width: 100%;
+        height: 2em;
+    }
+}
