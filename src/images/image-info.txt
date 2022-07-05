@@ -1,0 +1,1 @@
+All images used in this app are served via https://sirv.com/

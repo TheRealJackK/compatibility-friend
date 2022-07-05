@@ -31,18 +31,20 @@ const Login = () => {
 
     return (
         <>
-        <div id="buttons" className="container-fluid w-50 mt-5 border border-secondary rounded bg-light shadow">
-            <h2 className="text-center">Login</h2>
-            <section className="login-clean">
-                <form>
-                    <h2 className="visually-hidden">Login Form</h2>
-                    <div className="mb-3"><input onChange={(e) => {setUserName(e.target.value)}} className="form-control" type="text" name="userName" placeholder="Username" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setPassword(e.target.value)}} className="form-control" type="password" name="password" placeholder="Password" /></div>
-                    <div className="mb-3"><button to ="/" onClick={login} className="btn btn-primary d-block w-100" type ="submit">Login</button></div>
-                    <div className="mb-3">{loginMessage}</div>
-                </form>
-            </section>
-        </div>
+        <span className="page">
+            <h2>Login</h2>
+            <form>
+                <div>
+                    <h3>Login</h3>
+                    <label>Username</label>
+                    <input onChange={(e) => {setUserName(e.target.value)}} type="text" name="userName" placeholder="Username" />
+                    <label>Password</label>
+                    <input onChange={(e) => {setPassword(e.target.value)}} className="form-control" type="password" name="password" placeholder="Password" />
+                    <button id="submit" to ="/" onClick={login} type ="submit">Login</button>
+                    <div>{loginMessage}</div>
+                </div>
+            </form>
+        </span>
         </>
     )
 }

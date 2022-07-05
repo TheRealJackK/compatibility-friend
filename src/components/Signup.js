@@ -31,7 +31,33 @@ const Signup = () => {
 
     return (
         <>
-        <div id="buttons" className="container-fluid w-50 mt-5 border border-secondary rounded bg-light shadow">
+        <span className="page">
+            <h2>Sign Up</h2>
+            <form>
+                <div>
+                    <h3>Sign Up</h3>
+                    <label>Username</label>
+                    <input onChange={(e) => {setUsername(e.target.value)}} type="text" name="username" placeholder="Username" />
+                    <label>First Name</label>
+                    <input onChange={(e) => {setFirstName(e.target.value)}} type="text" name="firstName" placeholder="First Name" />
+                    <label>Last Name</label>
+                    <input onChange={(e) => {setLastName(e.target.value)}} type="text" name="lastName" placeholder="Last Name" />
+                    <label>Email</label>
+                    <input onChange={(e) => {setEmail(e.target.value)}} type="text" name="email" placeholder="Email" />
+                    <label>Preference</label>
+                    <select onChange={(e) => {setPreference(e.target.value)}}>
+                        <option>AMD</option>
+                        <option>Intel</option>
+                    </select>
+                    <label>Password</label>
+                    <input onChange={(e) => {setPassword(e.target.value)}} type="password" name="password" placeholder="Password" />
+                    <label>Confirm Password</label>
+                    <input className="form-control" type="password" name="password" placeholder="Confirm Password" />
+                    <button id="submit" onClick={submitUser} type="button">Register</button>
+                </div>
+            </form>
+        </span>
+        {/* <div id="buttons" className="container-fluid w-50 mt-5 border border-secondary rounded bg-light shadow">
             <h2 className="text-center">Sign Up</h2>
             <section className="login-clean">
                 <form>
@@ -56,7 +82,7 @@ const Signup = () => {
                     <div className="mb-3"><button onClick={submitUser} className="btn btn-primary d-block w-100" type="button">Register</button></div>
                 </form>
             </section>
-        </div>
+        </div> */}
         </>
     )
 }

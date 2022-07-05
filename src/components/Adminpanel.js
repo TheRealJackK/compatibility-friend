@@ -57,18 +57,6 @@ const Adminpanel = () => {
     } else {
         return (
             <>
-            {/* <div className="d-flex justify-content-center">
-                <div className="bg-light my-5 mx-1 p-1 border border-dark rounded">
-                    <Link className="text-decoration-none" to="/Createcpu">
-                        Add a new CPU
-                    </Link>
-                </div>
-                <div className="bg-light my-5 mx-1 p-1 border border-dark rounded">
-                    <Link className="text-decoration-none" to="/Createboard">
-                        Add a new Motherboard
-                    </Link>
-                </div>
-            </div> */}
             <span className="page">
             <h2>List of Users</h2>
                 <span>

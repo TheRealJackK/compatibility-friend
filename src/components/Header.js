@@ -8,6 +8,7 @@ const Header = () => {
         <header className="header">
             <div>
                 <h1>Compatibility Friend</h1>
+                <img src="https://nceptior.sirv.com/compatibilityfriend/compatibility-friend-logo192.png" alt="logo" />
             </div>
             <span>
                 <Link className="nav" to="/"><p>Home</p></Link>
@@ -17,7 +18,7 @@ const Header = () => {
                 <Link className="nav" to="/Login"><p>Login</p></Link>
             </span>
             <div id="hamburger-container">
-            <img id="hamburger-icon" src="https://nceptior.sirv.com/casadeezz.com/hamburger.svg" alt="hamburger" />
+            <img id="hamburger-icon" src="https://nceptior.sirv.com/compatibilityfriend/hamburger-svg-black.svg" alt="hamburger" />
                 <ul id="hamburger-links">
                     <li><Link to="/"><p>Home</p></Link></li>
                     <li><Link to="/Searchboard"><p>Search a Board</p></Link></li>

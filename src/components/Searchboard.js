@@ -36,7 +36,7 @@ const Searchboard = () => {
                 <>
                 <span className="page">
                 <h2>Search A Board</h2>
-                    <input onChange={(event) => {setSearchVal(event.target.value)}} type="search" className="border-3 w-100" placeholder="Try 'ROG Strix X570-E Gaming' " />
+                    <input id="searchboard" onChange={(event) => {setSearchVal(event.target.value)}} type="search" className="border-3 w-100" placeholder="Try 'ROG Strix X570-E Gaming' " />
                     <div className="card-group">
                     {Motherboards.map(motherboard => (
                         <div className="card-detailed" key={motherboard.boardId}>

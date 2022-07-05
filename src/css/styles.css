@@ -9,7 +9,7 @@ Colours
 
 Highlights - #262626
 Background - #d9d9d9
-Header/Footer/Cards - #e6e6e6;
+Header/Footer/Cards/Form - #e6e6e6;
 
 */
 
@@ -24,7 +24,7 @@ h1, h2, h3, h4, h5 {
     text-align: center;
 }
 
-p {
+p, label, button {
     font-family: 'Roboto', sans-serif;
     color: #262626;
     text-align: center;
@@ -37,6 +37,7 @@ p {
 /* Header & Footer Styling */
 
 .header {
+    position: fixed;
     width: 100%;
     z-index: 99;
     text-align: center;
@@ -68,6 +69,11 @@ p {
     align-items: center;
     margin: auto;
     max-width: 80%;
+}
+
+.header > div > img {
+    padding: 0.2em;
+    width: 6em;
 }
 
 .header > span > a {
@@ -150,7 +156,7 @@ p {
 }
 
 .footer > span > a:hover {
-    transform: scale(1.15, 1.15);
+    transform: scale(1.05, 1.05);
     text-decoration: underline 1.5px #262626;
 }
 
@@ -179,6 +185,7 @@ p {
 }
 
 .page h2 {
+    margin-top: 5em;
     font-size: 2.5rem;
     width: fit-content;
 }
@@ -187,8 +194,10 @@ p {
   color: #262626;  
 }
 
-.page > input {
-    width: 75%;
+.page > #searchboard {
+    font-family: 'Roboto', sans-serif;
+    color: #262626;
+    width: 80%;
     margin-bottom: 1em;
 }
 
@@ -325,10 +334,9 @@ form {
     width: 50%;
     margin: 1em;
     padding: 1em;
-    background: #262626;
+    background: #e6e6e6;
     border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, 0.6) 0px 5px 15px;
-    border: 2px solid #262626;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 form div {
@@ -338,37 +346,24 @@ form div {
 }
 
 form h3 {
-    font-family: 'Kdam Thmor Pro', sans-serif;
     font-size: 1.5em;
-    color: #ffffff;
     text-align: left;
 }
 
 form label {
-    font-family: 'Kdam Thmor Pro', sans-serif;
-    color: #ffffff;
     font-size: 1em;
     text-align: left;
 }
 
 form input {
-    border: 2px solid #262626;
     border-radius: 4px;
-    color: #ffffff;
-    background: #333333;
-    font-family: 'Kanit', sans-serif;
 }
 
 form select {
-    border: 2px solid #262626;
     border-radius: 4px;
-    color: #ffffff;
-    background: #333333;
-    font-family: 'Kanit', sans-serif;
 }
 
 form textarea {
-    border: 2px solid #262626;
     border-radius: 4px;
     color: #ffffff;
     background: #333333;
@@ -380,14 +375,11 @@ form textarea {
     margin: auto;
     margin-top: 1em;
     cursor: pointer;
-    color: #ffffff;
-    font-family: 'Kanit', sans-serif;
     transition: 500ms;
 }
 
 #submit:hover {
     transform: scale(1.01, 1.01);
-    color: #262626;
 }
 
 #honeypot {
@@ -397,6 +389,7 @@ form textarea {
 /* Loading Spinner */
 
 .lds-facebook {
+    margin-top: 11em;
     display: inline-block;
     position: relative;
     width: 80px;
