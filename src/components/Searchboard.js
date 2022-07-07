@@ -26,44 +26,36 @@ const Searchboard = () => {
         return (
             <>
             <span className="page">
-                <div class="lds-facebook"><div></div><div></div><div></div></div>
+                <div className="lds-facebook"><div></div><div></div><div></div></div>
             </span>
             </>
         )
     } else {
-        if(searchVal === "") {
-            return(
-                <>
-                <span className="page">
-                <h2>Search A Board</h2>
-                    <input id="searchboard" onChange={(event) => {setSearchVal(event.target.value)}} type="search" className="border-3 w-100" placeholder="Try 'ROG Strix X570-E Gaming' " />
-                    <div className="card-group">
-                    {Motherboards.map(motherboard => (
-                        <div className="card-detailed" key={motherboard.boardId}>
-                        <img src={motherboard.boardImgPath} alt={motherboard.productName}/>
-                        <h3><strong>Product Name: </strong>{motherboard.productName}</h3>
-                        <p><strong>Series: </strong>{motherboard.series}</p>
-                        <p><strong>Manufactorer: </strong>{motherboard.manufactorer}</p>
-                        <p><strong>Chipset: </strong>{motherboard.chipset}</p>
-                        <p><strong>Socket: </strong>{motherboard.cpuSocket}</p>
-                        <p><strong>Compatibile Memory: </strong>{motherboard.compatibleMemory}</p>
-                        <p><strong>Product Description: </strong>{motherboard.productDescription}</p>
-                        <Link to={`Mobodetailedview/${motherboard.boardId}`}>
-                            <p>See More</p>
-                        </Link>
-                        </div>
-                    ))}
-                    </div>
-                </span>
-                </>
-            )
-        } else {
-            return (
+        return(
             <>
+            <span className="page">
+            <h2>Search A Board</h2>
+                <input id="searchboard"
+                /* On change of input, set the state of the search value */
+                onChange={(e) => setSearchVal(e.target.value)}
+                type="search" placeholder="Try 'ROG Strix X570-E Gaming' " />
+                <div className="card-group">
+                {/* Filter array to include motherboards that include the inputed search value */}
+                {Motherboards.filter(Motherboards => Motherboards.productName.toLowerCase().includes(searchVal)).map(motherboard => (
+                    <div className="card" key={motherboard.boardId}>
+                    <img src={motherboard.boardImgPath} alt={motherboard.productName}/>
+                    <h3><strong>Product Name: </strong>{motherboard.productName}</h3>
+                    <p><strong>Product Description: </strong>{motherboard.productDescription}</p>
+                    <Link to={`Mobodetailedview/${motherboard.boardId}`}>
+                        <p>See More</p>
+                    </Link>
+                    </div>
+                ))}
+                </div>
+            </span>
             </>
             )
         }
     }
-}
 
 export default Searchboard;

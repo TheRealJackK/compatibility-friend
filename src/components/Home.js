@@ -60,7 +60,7 @@ const Home = () => {
                         ))}
                     </span>
                 </span>
-            <h2>Popular CPU's</h2>
+            <h3>Popular CPU's</h3>
                 <span className="card-group">
                     {Cpus.filter(cpu => cpu.tag === "popular").map(cpu => (
                         <Link className="text-decoration-none" to={`Cpudetailedview/${cpu.cpuId}`}>

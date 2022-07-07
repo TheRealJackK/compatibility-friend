@@ -13,6 +13,8 @@ Header/Footer/Cards/Form - #e6e6e6;
 
 */
 
+/* Global Styles */
+
 body {
     margin: 0;
     background: #d9d9d9;
@@ -30,11 +32,7 @@ p, label, button {
     text-align: center;
 }
 
-#CDElogo {
-    width: 30%;
-}
-
-/* Header & Footer Styling */
+/* Header, Footer and Navbar Styling */
 
 .header {
     position: fixed;
@@ -88,14 +86,6 @@ p, label, button {
 
 .header > span > div > img {
     cursor: pointer;
-}
-
-#email::before {
-    content: "jack";
-}
-
-#email::after {
-    content: "casa-de-ezz.com";
 }
 
 #hamburger-container > #hamburger-icon {
@@ -186,6 +176,11 @@ p, label, button {
 
 .page h2 {
     margin-top: 5em;
+    font-size: 2.5rem;
+    width: fit-content;
+}
+
+.page h3 {
     font-size: 2.5rem;
     width: fit-content;
 }
@@ -437,18 +432,20 @@ form textarea {
         font-size: 1rem;
     }
 
+    .header > div > img {
+        display: none;
+    }
+
     .map-box {
         display: none;
     }
 
     .card-group {
-        max-width: 100%;
+        width: 100%;
     }
 
-    .card {
-        display: flex;
-        flex-direction: column;
-        width: 90%;
+    .card:hover, .card-detailed:hover, .card-xl:hover {
+        transform: none;
     }
 
     .footer {
@@ -457,6 +454,10 @@ form textarea {
 
     .page span {
         padding-bottom: 1em;
+    }
+
+    .page h2 {
+        margin-top: 3em;
     }
 
     .page form {
