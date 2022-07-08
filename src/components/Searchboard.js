@@ -42,14 +42,14 @@ const Searchboard = () => {
                 <div className="card-group">
                 {/* Filter array to include motherboards that include the inputed search value */}
                 {Motherboards.filter(Motherboards => Motherboards.productName.toLowerCase().includes(searchVal)).map(motherboard => (
-                    <div className="card" key={motherboard.boardId}>
-                    <img src={motherboard.boardImgPath} alt={motherboard.productName}/>
-                    <h3><strong>Product Name: </strong>{motherboard.productName}</h3>
-                    <p><strong>Product Description: </strong>{motherboard.productDescription}</p>
                     <Link to={`Mobodetailedview/${motherboard.boardId}`}>
-                        <p>See More</p>
-                    </Link>
+                    <div className="card" key={motherboard.boardId}>
+                        <img src={motherboard.boardImgPath} alt={motherboard.productName}/>
+                        <h3><strong>Product Name: </strong>{motherboard.productName}</h3>
+                        <p><strong>Product Description: </strong>{motherboard.productDescription}</p>
+                        <p>Click To See More!</p>
                     </div>
+                    </Link>
                 ))}
                 </div>
             </span>

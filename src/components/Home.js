@@ -37,7 +37,7 @@ const Home = () => {
         return (
             <>
             <span className="page">
-                <div class="lds-facebook"><div></div><div></div><div></div></div>
+                <div className="lds-facebook"><div></div><div></div><div></div></div>
             </span>
             </>
         ) 
@@ -63,7 +63,7 @@ const Home = () => {
             <h3>Popular CPU's</h3>
                 <span className="card-group">
                     {Cpus.filter(cpu => cpu.tag === "popular").map(cpu => (
-                        <Link className="text-decoration-none" to={`Cpudetailedview/${cpu.cpuId}`}>
+                        <Link to={`Cpudetailedview/${cpu.cpuId}`}>
                             <span className="card" key={cpu.cpuId}>
                                 <img src={cpu.cpuImage} alt={cpu.cpuName}/>
                                 <h3><strong>CPU Name: </strong>{cpu.cpuName}</h3>
