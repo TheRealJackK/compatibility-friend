@@ -53,32 +53,30 @@ const Mobodetailedview = () => {
                         <p><strong>Manufactorer: </strong>{motherboard.manufactorer}</p>
                         <p><strong>Chipset: </strong>{motherboard.chipset}</p>
                         <p><strong>Socket: </strong>{motherboard.cpuSocket}</p>
-                        <p><strong>Compatibile Memory: </strong>{motherboard.compatibleMemory}</p>
+                        <p><strong>Compatible Memory: </strong>{motherboard.compatibleMemory}</p>
                         <p><strong>Product Description: </strong>{motherboard.productDescription}</p>
                     </div>
                     <span></span>
-                    <h3>Compatibile Cpus</h3>
-                    <span>
+                    <h3>Compatible Cpus</h3>
+                    <div className="card-group">
                         {Cpus.filter(cpu => cpu.architecture === motherboard.supportedArchitecture ||
-                                            cpu.architecture === motherboard.supportedArchitecture2 ||
-                                            cpu.architecture === motherboard.supportedArchitecture3 ||
-                                            cpu.architecture === motherboard.supportedArchitecture4 ||
-                                            cpu.architecture === motherboard.supportedArchitecture5 ).map(cpu => (
-                        <Link to={`Cpudetailedview/${cpu.cpuId}`}>
-                            <span className="card" key={cpu.cpuId}>
-                                <img src={cpu.cpuImage} alt={cpu.cpuName}/>
-                                <h3><strong>CPU Name: </strong>{cpu.cpuName}</h3>
-                                <p><strong>CPU Socket: </strong>{cpu.cpuSocket}</p>
-                                <p><strong>Core Count: </strong>{cpu.numOfCores}</p>
-                                <p><strong>Thread Count: </strong>{cpu.numOfThreads}</p>
-                                <p><strong>Base Clock: </strong>{cpu.baseClock}</p>
-                                <p><strong>Max Boost Clock: </strong>{cpu.maxBoostClock}</p>
-                                <p><strong>Unlocked for overclocking: </strong>{cpu.unlocked}</p>
-                                <p>Click To See More!</p>
-                            </span>
-                        </Link>
+                                                cpu.architecture === motherboard.supportedArchitecture2 ||
+                                                cpu.architecture === motherboard.supportedArchitecture3 ||
+                                                cpu.architecture === motherboard.supportedArchitecture4 ||
+                                                cpu.architecture === motherboard.supportedArchitecture5 ).map(cpu => (
+                        <div className="card-detailed" key={cpu.cpuId}>
+                            <img src={cpu.cpuImage} alt={cpu.cpuName}/>
+                            <p><strong>CPU Name: </strong>{cpu.cpuName}</p>
+                            <p><strong>CPU Socket: </strong>{cpu.cpuSocket}</p>
+                            <p><strong>Core Count: </strong>{cpu.numOfCores}</p>
+                            <p><strong>Thread Count: </strong>{cpu.numOfThreads}</p>
+                            <p><strong>Base Clock: </strong>{cpu.baseClock}</p>
+                            <p><strong>Max Boost Clock: </strong>{cpu.maxBoostClock}</p>
+                            <p><strong>Unlocked for overclocking: </strong>{cpu.unlocked}</p>
+                            <p>Click To See More!</p>
+                        </div>
                         ))}
-                    </span>
+                    </div>
                 </span> 
             ))}
             </>

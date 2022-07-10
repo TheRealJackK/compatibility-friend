@@ -8,6 +8,8 @@ const Cpudetailedview = () => {
 
     // useState for cpus
     const [Cpus, setCpus] = useState([])
+    // useState for Motherboard
+    const [Motherboards, setMotherboards] = useState([])
     // loadingCpus spinner
     const [loadingCpus, setLoadingCpus] = useState(false)
 
@@ -21,14 +23,20 @@ const Cpudetailedview = () => {
         })
     }, [])
 
+    // get request for motherboards
+    useEffect(() => {
+        Axios.get('http://localhost:3001/api/getmotherboard')
+        .then((response)=>{
+            setMotherboards(response.data)
+        })
+    }, [])
+
     if(loadingCpus === true) {
         return(
             <>
-            <div className="d-flex justify-content-center py-5">
-                <div className="spinner-border text-secondary" role="status">
-                <span className="visually-hidden">Loading...</span>
-                </div>
-            </div>
+            <span className="page">
+                <div className="lds-facebook"><div></div><div></div><div></div></div>
+            </span>
             </>
         )
     } else {
@@ -58,10 +66,25 @@ const Cpudetailedview = () => {
                         <p><strong>Unlocked for overclocking: </strong>{cpu.unlocked}</p>
                     </div>
                     <span></span>
-                    <h3>Compatibile Cpus</h3>
-                    <span>
-                        
-                    </span>
+                    <h3>Compatible Motherboards</h3>
+                    <div className="card-group">
+                        {Motherboards.filter(mobo => mobo.supportedArchitecture === cpu.architecture ||
+                                            mobo.supportedArchitecture2 === cpu.architecture ||
+                                            mobo.supportedArchitecture3 === cpu.architecture ||
+                                            mobo.supportedArchitecture4 === cpu.architecture ||
+                                            mobo.supportedArchitecture5 === cpu.architecture ).map(motherboard => (
+                        <div className="card-detailed">
+                            <img src={motherboard.boardImgPath} alt={motherboard.productName} />
+                            <p><strong>Product Name: </strong>{motherboard.productName}</p>
+                            <p><strong>Series: </strong>{motherboard.series}</p>
+                            <p><strong>Manufactorer: </strong>{motherboard.manufactorer}</p>
+                            <p><strong>Chipset: </strong>{motherboard.chipset}</p>
+                            <p><strong>Socket: </strong>{motherboard.cpuSocket}</p>
+                            <p><strong>Compatible Memory: </strong>{motherboard.compatibleMemory}</p>
+                            <p><strong>Product Description: </strong>{motherboard.productDescription}</p>
+                        </div>                        
+                        ))}
+                    </div>
                 </span>
                 // <div className="card-body bg-light border border-secondary rounded d-flex flex-column align-items-center m-5" key={cpu.cpuId}>
                 //     <div className="p-2">

@@ -52,7 +52,7 @@ const Home = () => {
                             <Link to={`Mobodetailedview/${motherboard.boardId}`}>
                                 <span className="card" key={motherboard.boardId}>
                                     <img src={motherboard.boardImgPath} alt={motherboard.productName}/>
-                                    <h3><strong>Product Name: </strong>{motherboard.productName}</h3>
+                                    <p><strong>Product Name: </strong>{motherboard.productName}</p>
                                     <p><strong>Product Description: </strong>{motherboard.productDescription}</p>
                                     <p>Click To See More!</p>
                                 </span>
@@ -66,7 +66,7 @@ const Home = () => {
                         <Link to={`Cpudetailedview/${cpu.cpuId}`}>
                             <span className="card" key={cpu.cpuId}>
                                 <img src={cpu.cpuImage} alt={cpu.cpuName}/>
-                                <h3><strong>CPU Name: </strong>{cpu.cpuName}</h3>
+                                <p><strong>CPU Name: </strong>{cpu.cpuName}</p>
                                 <p><strong>CPU Socket: </strong>{cpu.cpuSocket}</p>
                                 <p><strong>Core Count: </strong>{cpu.numOfCores}</p>
                                 <p><strong>Thread Count: </strong>{cpu.numOfThreads}</p>

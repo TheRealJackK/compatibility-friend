@@ -45,7 +45,7 @@ const Searchboard = () => {
                     <Link to={`Mobodetailedview/${motherboard.boardId}`}>
                     <div className="card" key={motherboard.boardId}>
                         <img src={motherboard.boardImgPath} alt={motherboard.productName}/>
-                        <h3><strong>Product Name: </strong>{motherboard.productName}</h3>
+                        <p><strong>Product Name: </strong>{motherboard.productName}</p>
                         <p><strong>Product Description: </strong>{motherboard.productDescription}</p>
                         <p>Click To See More!</p>
                     </div>
