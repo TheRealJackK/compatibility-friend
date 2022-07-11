@@ -20,11 +20,12 @@ const Createcpu = () => {
     const [processorTechnology, setProcessorTechnology] = useState("")
     const [maxOpTemp, setMaxOpTemp] = useState("")
     const [launchDate, setLaunchDate] = useState("")
-    const [unlocked, setUnlocked] = useState("")
+    const [unlocked, setUnlocked] = useState("No")
     const [tags, setTags] = useState("")
+    const [architecture, setArchitecture] = useState("zen")
 
-    const submitCpu = (event) => {
-        event.preventDefault();
+    const submitCpu = (e) => {
+        e.preventDefault();
         Axios.post("http://localhost:3001/api/insertcpu", {
             cpuImage: cpuImage,
             cpuName: cpuName,
@@ -44,6 +45,7 @@ const Createcpu = () => {
             launchDate: launchDate,
             unlocked: unlocked,
             tags: tags,
+            architecture: architecture
         })
         .then((response) => {
             console.log(response)
@@ -59,32 +61,101 @@ const Createcpu = () => {
 
     return(
         <>
-        <div id="buttons" className="container-fluid w-50 mt-5 border border-secondary rounded bg-light shadow">
-            <h2 className="text-center">Create a CPU</h2>
-            <section className="login-clean">
-                <form>
-                    <div className="mb-3"><input onChange={(e) => {setCpuImage(e.target.value)}} className="form-control" type="text" name="cpuImage" placeholder="cpuImage" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setCpuName(e.target.value)}} className="form-control" type="text" name="cpuName" placeholder="cpuName" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setCpuSocket(e.target.value)}} className="form-control" type="text" name="cpuSocket" placeholder="cpuSocket" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setProductFamily(e.target.value)}} className="form-control" type="text" name="productFamily" placeholder="productFamily" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setProductLine(e.target.value)}} className="form-control" type="text" name="productLine" placeholder="productLine" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setNumOfCores(e.target.value)}} className="form-control" type="text" name="numOfCores" placeholder="numOfCores" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setNumOfThreads(e.target.value)}} className="form-control" type="text" name="numOfThreads" placeholder="numOfThreads" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setBaseClock(e.target.value)}} className="form-control" type="text" name="baseClock" placeholder="baseClock" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setMaxBoostClock(e.target.value)}} className="form-control" type="text" name="maxBoostClock" placeholder="maxBoostClock" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setL1Cache(e.target.value)}} className="form-control" type="text" name="l1Cache" placeholder="l1Cache" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setL2Cache(e.target.value)}} className="form-control" type="text" name="l2Cache" placeholder="l2Cache" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setL3Cache(e.target.value)}} className="form-control" type="text" name="l3Cache" placeholder="l3Cache" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setDefaultTDP(e.target.value)}} className="form-control" type="text" name="defaultTDP" placeholder="defaultTDP" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setProcessorTechnology(e.target.value)}} className="form-control" type="text" name="processorTechnology" placeholder="processorTechnology" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setMaxOpTemp(e.target.value)}} className="form-control" type="text" name="maxOpTemp" placeholder="maxOpTemp" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setLaunchDate(e.target.value)}} className="form-control" type="text" name="launchDate" placeholder="launchDate" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setUnlocked(e.target.value)}} className="form-control" type="text" name="unlocked" placeholder="unlocked" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setTags(e.target.value)}} className="form-control" type="text" name="tags" placeholder="tags" /></div>
-                    <div className="mb-3"><button onClick={submitCpu} className="btn btn-primary d-block w-100" type="button">Register</button></div>
-                </form>
-            </section>
-        </div>
+        <span className="page">
+            <h2>Add A Cpu</h2>
+            <form>
+                <div>
+                    <h3>Add A Cpu</h3>
+                    <label>Cpu Image Path</label>
+                    <input onChange={(e) => {setCpuImage(e.target.value)}} type="text" name="cpuImage" placeholder="cpuImage" />
+                    <label>Cpu Name</label>
+                    <input onChange={(e) => {setCpuName(e.target.value)}} type="text" name="cpuName" placeholder="cpuName" />
+                    <label>Cpu Socket</label>
+                    <input onChange={(e) => {setCpuSocket(e.target.value)}} type="text" name="cpuSocket" placeholder="cpuSocket" />
+                    <label>Product Family</label>
+                    <input onChange={(e) => {setProductFamily(e.target.value)}} type="text" name="productFamily" placeholder="productFamily" />
+                    <label>Product Line</label>
+                    <input onChange={(e) => {setProductLine(e.target.value)}} type="text" name="productLine" placeholder="productLine" />
+                    <label>Number Of Cores</label>
+                    <select onChange={(e) => {setNumOfCores(e.target.value)}} name="numOfCores">
+                        <option>2</option>
+                        <option>4</option>
+                        <option>6</option>
+                        <option>8</option>
+                        <option>10</option>
+                        <option>12</option>
+                        <option>14</option>
+                        <option>16</option>
+                        <option>18</option>
+                        <option>20</option>
+                        <option>22</option>
+                        <option>24</option>
+                        <option>32</option>
+                        <option>64</option>
+                        <option>128</option>
+                    </select>
+                    <label>Number Of Threads</label>
+                    <select onChange={(e) => {setNumOfThreads(e.target.value)}} name="numOfThreads">
+                    <option>2</option>
+                        <option>4</option>
+                        <option>6</option>
+                        <option>8</option>
+                        <option>10</option>
+                        <option>12</option>
+                        <option>14</option>
+                        <option>16</option>
+                        <option>18</option>
+                        <option>20</option>
+                        <option>22</option>
+                        <option>24</option>
+                        <option>32</option>
+                        <option>64</option>
+                        <option>128</option>
+                    </select>
+                    <label>Base Clock</label>
+                    <input onChange={(e) => {setBaseClock(e.target.value)}} type="text" name="baseClock" placeholder="baseClock" />
+                    <label>Max Boost Clock</label>
+                    <input onChange={(e) => {setMaxBoostClock(e.target.value)}} type="text" name="maxBoostClock" placeholder="maxBoostClock" />
+                    <label>L1 Cache</label>
+                    <input onChange={(e) => {setL1Cache(e.target.value)}} type="text" name="l1Cache" placeholder="l1Cache" />
+                    <label>L2 Cache</label>
+                    <input onChange={(e) => {setL2Cache(e.target.value)}} type="text" name="l2Cache" placeholder="l2Cache" />
+                    <label>L3 Cache</label>
+                    <input onChange={(e) => {setL3Cache(e.target.value)}} type="text" name="l3Cache" placeholder="l3Cache" />
+                    <label>Default TDP</label>
+                    <input onChange={(e) => {setDefaultTDP(e.target.value)}} type="text" name="defaultTDP" placeholder="defaultTDP" />
+                    <label>Processor Technology</label>
+                    <input onChange={(e) => {setProcessorTechnology(e.target.value)}} type="text" name="processorTechnology" placeholder="processorTechnology" />
+                    <label>Maximum Operation Temperature</label>
+                    <input onChange={(e) => {setMaxOpTemp(e.target.value)}} type="text" name="maxOpTemp" placeholder="maxOpTemp" />
+                    <label>Launch Date</label>
+                    <input onChange={(e) => {setLaunchDate(e.target.value)}} type="text" name="launchDate" placeholder="launchDate" />
+                    <label>Unlocked For Overclocking?</label>
+                    <select onChange={(e) => {setUnlocked(e.target.value)}} name="unlocked">
+                        <option>No</option>
+                        <option>Yes</option>
+                    </select>
+                    <label>Tags</label>
+                    <select onChange={(e) => {setTags(e.target.value)}} name="tags">
+                        <option></option>
+                        <option>popular</option>
+                    </select>
+                    <label>Architecture</label>
+                    <select onChange={(e) => {setArchitecture(e.target.value)}} name="architecture">
+                        <option>zen</option>
+                        <option>zen+</option>
+                        <option>zen2</option>
+                        <option>zen3</option>
+                        <option>kaby lake</option>
+                        <option>coffee lake</option>
+                        <option>comet lake</option>
+                        <option>rocket lake</option>
+                        <option>alder lake</option>
+                    </select>
+                    <button id="submit" onClick={submitCpu} type="button">Submit</button>
+                </div>
+            </form>
+        </span>
         </>
     )
 }

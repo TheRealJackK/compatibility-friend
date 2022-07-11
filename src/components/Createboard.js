@@ -13,6 +13,11 @@ const Createboard = () => {
     const [compatibleMemory, setCompatibleMemory] = useState("")
     const [productDescription, setProductDescription] = useState("")
     const [tag, setTag] = useState("")
+    const [supportedArchitecture, setSupportedArchitecture] = useState("")
+    const [supportedArchitecture2, setSupportedArchitecture2] = useState("")
+    const [supportedArchitecture3, setSupportedArchitecture3] = useState("")
+    const [supportedArchitecture4, setSupportedArchitecture4] = useState("")
+    const [supportedArchitecture5, setSupportedArchitecture5] = useState("")
 
     const submitBoard = (event) => {
         event.preventDefault();
@@ -26,6 +31,11 @@ const Createboard = () => {
             compatibleMemory: compatibleMemory,
             productDescription: productDescription,
             tag: tag,
+            supportedArchitecture: supportedArchitecture,
+            supportedArchitecture2: supportedArchitecture2,
+            supportedArchitecture3: supportedArchitecture3,
+            supportedArchitecture4: supportedArchitecture4,
+            supportedArchitecture5: supportedArchitecture5
         })
         .then((response) => {
             console.log(response)
@@ -41,23 +51,43 @@ const Createboard = () => {
 
     return(
         <>
-        <div id="buttons" className="container-fluid w-50 mt-5 border border-secondary rounded bg-light shadow">
-            <h2 className="text-center">Create a Board</h2>
-            <section className="login-clean">
-                <form>
-                    <div className="mb-3"><input onChange={(e) => {setBoardImgPath(e.target.value)}} className="form-control" type="text" name="boardImgPath" placeholder="boardImgPath" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setProductName(e.target.value)}} className="form-control" type="text" name="productName" placeholder="ProductName" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setSeries(e.target.value)}} className="form-control" type="text" name="series" placeholder="series" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setManufactorer(e.target.value)}} className="form-control" type="text" name="manufactorer" placeholder="manufactorer" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setChipset(e.target.value)}} className="form-control" type="text" name="chipset" placeholder="chipset" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setCpuSocket(e.target.value)}} className="form-control" type="text" name="cpuSocket" placeholder="cpuSocket" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setCompatibleMemory(e.target.value)}} className="form-control" type="text" name="compatibleMemory" placeholder="compatibleMemory" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setProductDescription(e.target.value)}} className="form-control" type="text" name="productDescription" placeholder="productDescription" /></div>
-                    <div className="mb-3"><input onChange={(e) => {setTag(e.target.value)}} className="form-control" type="text" name="tag" placeholder="tag" /></div>
-                    <div className="mb-3"><button onClick={submitBoard} className="btn btn-primary d-block w-100" type="button">Register</button></div>
-                </form>
-            </section>
-        </div>
+        <span className="page">
+            <h2>Add A Motherboard</h2>
+            <form>
+                <div>
+                    <h3>Add A Motherboard</h3>
+                    <label>Board Image Path</label>
+                    <input onChange={(e) => {setBoardImgPath(e.target.value)}} type="text" name="boardImgPath" placeholder="boardImgPath" />
+                    <label>ProductName</label>
+                    <input onChange={(e) => {setProductName(e.target.value)}} type="text" name="productName" placeholder="ProductName" />
+                    <label>Series</label>
+                    <input onChange={(e) => {setSeries(e.target.value)}} type="text" name="series" placeholder="series" />
+                    <label>Manufactorer</label>
+                    <input onChange={(e) => {setManufactorer(e.target.value)}} type="text" name="manufactorer" placeholder="manufactorer" />
+                    <label>Chipset</label>
+                    <input onChange={(e) => {setChipset(e.target.value)}} type="text" name="chipset" placeholder="chipset" />
+                    <label>Cpu Socket</label>
+                    <input onChange={(e) => {setCpuSocket(e.target.value)}} type="text" name="cpuSocket" placeholder="cpuSocket" />
+                    <label>Compatible Memory</label>
+                    <input onChange={(e) => {setCompatibleMemory(e.target.value)}} type="text" name="compatibleMemory" placeholder="compatibleMemory" />
+                    <label>Product Description</label>
+                    <input onChange={(e) => {setProductDescription(e.target.value)}} type="text" name="productDescription" placeholder="productDescription" />
+                    <label>Tag</label>
+                    <input onChange={(e) => {setTag(e.target.value)}} type="text" name="tag" placeholder="tag" />
+                    <label>Supported Architecture</label>
+                    <input onChange={(e) => {setSupportedArchitecture(e.target.value)}} type="text" name="supportedArchitecture" placeholder="supportedArchitecture" />
+                    <label>Supported Architecture 2 (If there are none leave blank)</label>
+                    <input onChange={(e) => {setSupportedArchitecture2(e.target.value)}} type="text" name="supportedArchitecture2" placeholder="supportedArchitecture2" />
+                    <label>Supported Architecture 3 (If there are none leave blank)</label>
+                    <input onChange={(e) => {setSupportedArchitecture3(e.target.value)}} type="text" name="supportedArchitecture3" placeholder="supportedArchitecture3" />
+                    <label>Supported Architecture 4 (If there are none leave blank)</label>
+                    <input onChange={(e) => {setSupportedArchitecture4(e.target.value)}} type="text" name="supportedArchitecture4" placeholder="supportedArchitecture4" />
+                    <label>Supported Architecture 5 (If there are none leave blank)</label>
+                    <input onChange={(e) => {setSupportedArchitecture5(e.target.value)}} type="text" name="supportedArchitecture5" placeholder="supportedArchitecture5" />
+                    <button id="submit" onClick={submitBoard} type="button">Submit</button>
+                </div>
+            </form>
+        </span>
         </>
     )
 }

@@ -58,7 +58,12 @@ const Adminpanel = () => {
         return (
             <>
             <span className="page">
-            <h2>List of Users</h2>
+            <h2>Admin</h2>
+            <span>
+                <Link to="/Createboard"><p>Add A Motherboard</p></Link>
+                <Link to="/Createcpu"><p>Add A Cpu</p></Link>
+            </span>
+            <h3>List of Users</h3>
                 <span>
                     <div className="card-group">
                         {Users.map(user => (
@@ -80,7 +85,7 @@ const Adminpanel = () => {
                         ))}
                     </div>
                 </span>
-                <h2>List of Boards</h2>
+                <h3>List of Boards</h3>
                 <span>
                     <div className="card-group">
                     {Motherboards.map(motherboard => (
@@ -100,7 +105,7 @@ const Adminpanel = () => {
                     ))}
                     </div>
                 </span>
-                <h2>List of CPU's</h2>
+                <h3>List of CPU's</h3>
                 <span>
                     <div className="card-group">
                         {Cpus.map(cpu => (
